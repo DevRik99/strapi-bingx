@@ -1,0 +1,222 @@
+{
+  "kind": "collectionType",
+  "collectionName": "traders",
+  "info": {
+    "singularName": "trader",
+    "pluralName": "traders",
+    "displayName": "Trader",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nickname": {
+      "type": "string",
+      "required": false
+    },
+    "uid": {
+      "type": "biginteger",
+      "required": true
+    },
+    "equity": {
+      "type": "float"
+    },
+    "totalEarnings": {
+      "type": "float"
+    },
+    "followerEarning": {
+      "type": "float"
+    },
+    "totalTransactions": {
+      "type": "integer"
+    },
+    "avgProfitAmount": {
+      "type": "string"
+    },
+    "avgProfitRate": {
+      "type": "string"
+    },
+    "avgLossAmount": {
+      "type": "string"
+    },
+    "avgLossRate": {
+      "type": "string"
+    },
+    "pnlRate": {
+      "type": "string"
+    },
+    "weeklyTradeFrequency": {
+      "type": "float"
+    },
+    "riskLevel7Days": {
+      "type": "integer"
+    },
+    "riskLevel30Days": {
+      "type": "integer"
+    },
+    "riskLevel90Days": {
+      "type": "integer"
+    },
+    "riskLevel180Days": {
+      "type": "integer"
+    },
+    "strFollowerNum": {
+      "type": "integer"
+    },
+    "avgFollowerEarnings": {
+      "type": "float"
+    },
+    "risks": {
+      "type": "json"
+    },
+    "maxRiskInAllTime": {
+      "type": "float"
+    },
+    "minRiskInAllTime": {
+      "type": "float"
+    },
+    "averageRiskInAllTime": {
+      "type": "float"
+    },
+    "isPnLRateAcceptable": {
+      "type": "boolean"
+    },
+    "isProfitRateAcceptable": {
+      "type": "boolean"
+    },
+    "isRiskAcceptable": {
+      "type": "boolean"
+    },
+    "isTradeFrequencyAcceptable": {
+      "type": "boolean"
+    },
+    "isTotalTransactionsAcceptable": {
+      "type": "boolean"
+    },
+    "isMinDaysAcceptable": {
+      "type": "boolean"
+    },
+    "isTotalEarningAcceptable": {
+      "type": "boolean"
+    },
+    "isFollowersVariationAcceptable": {
+      "type": "boolean"
+    },
+    "isAceptableRiskTrader": {
+      "type": "boolean"
+    },
+    "averageRiskLevel": {
+      "type": "float"
+    },
+    "maxLossDayValue": {
+      "type": "float"
+    },
+    "maxLossWeekValue": {
+      "type": "float"
+    },
+    "maxLossMonthValue": {
+      "type": "float"
+    },
+    "isAcceptableLossAverage": {
+      "type": "boolean"
+    },
+    "isGodResume": {
+      "type": "boolean"
+    },
+    "BINGX_FEATURE": {
+      "type": "string"
+    },
+    "BINGX_SWAP_FUTURES": {
+      "type": "string"
+    },
+    "fansNum": {
+      "type": "integer"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "latest30DaysEarningRatio": {
+      "type": "string"
+    },
+    "maxProfit": {
+      "type": "float"
+    },
+    "maxLoss": {
+      "type": "float"
+    },
+    "maxProfitAVG": {
+      "type": "float"
+    },
+    "maxLossAVG": {
+      "type": "float"
+    },
+    "aceptableLossAVG": {
+      "type": "boolean"
+    },
+    "minProfit": {
+      "type": "float"
+    },
+    "minLoss": {
+      "type": "float"
+    },
+    "formattedDate": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "recent7DaysRate": {
+      "type": "float"
+    },
+    "recent30DaysRate": {
+      "type": "float"
+    },
+    "recent90DaysRate": {
+      "type": "float"
+    },
+    "recent180DaysRate": {
+      "type": "float"
+    },
+    "winRate": {
+      "type": "float"
+    },
+    "urlAnalized": {
+      "type": "string"
+    },
+    "copy_standar_futures": {
+      "type": "boolean"
+    },
+    "copy_perpetual_futures": {
+      "type": "boolean"
+    },
+    "copy_demo_mode": {
+      "type": "boolean"
+    },
+    "positionAmount": {
+      "type": "biginteger"
+    },
+    "orderRate": {
+      "type": "biginteger"
+    },
+    "blackList": {
+      "type": "boolean"
+    },
+    "notFoundTrader": {
+      "type": "boolean"
+    },
+    "traderIsUnderControl": {
+      "type": "boolean"
+    },
+    "tradeDays": {
+      "type": "float"
+    },
+    "avgHoldTime": {
+      "type": "float"
+    },
+    "comisionRate": {
+      "type": "float"
+    }
+  }
+}
