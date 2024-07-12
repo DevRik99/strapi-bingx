@@ -10,7 +10,29 @@
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "content-tags": {
+      "fieldName": "Tags",
+      "tags": {
+        "None": {
+          "color": "neutral"
+        },
+        "Done": {
+          "color": "success"
+        },
+        "In progress": {
+          "color": "primary"
+        },
+        "Error": {
+          "color": "danger"
+        },
+        "InRevision": {
+          "color": "warning"
+        }
+      },
+      "defaultTag": "In progress"
+    }
+  },
   "attributes": {
     "nickname": {
       "type": "string",
