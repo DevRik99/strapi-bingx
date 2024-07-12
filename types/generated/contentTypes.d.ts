@@ -374,16 +374,16 @@ export interface ApiTraderTrader extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    nickname: Attribute.String;
-    uid: Attribute.BigInteger & Attribute.Required;
+    nickname: Attribute.String & Attribute.Unique;
+    uid: Attribute.String & Attribute.Required & Attribute.Unique;
     equity: Attribute.Float;
     totalEarnings: Attribute.Float;
     followerEarning: Attribute.Float;
     totalTransactions: Attribute.Integer;
-    avgProfitAmount: Attribute.String;
-    avgProfitRate: Attribute.String;
-    avgLossAmount: Attribute.String;
-    avgLossRate: Attribute.String;
+    avgProfitAmount: Attribute.Float;
+    avgProfitRate: Attribute.Float;
+    avgLossAmount: Attribute.Float;
+    avgLossRate: Attribute.Float;
     pnlRate: Attribute.String;
     weeklyTradeFrequency: Attribute.Float;
     riskLevel7Days: Attribute.Integer;
@@ -410,7 +410,7 @@ export interface ApiTraderTrader extends Schema.CollectionType {
     maxLossWeekValue: Attribute.Float;
     maxLossMonthValue: Attribute.Float;
     isAcceptableLossAverage: Attribute.Boolean;
-    isGodResume: Attribute.Boolean;
+    isLatest30DaysEarningRatioAceptable: Attribute.Boolean;
     BINGX_FEATURE: Attribute.String;
     BINGX_SWAP_FUTURES: Attribute.String;
     fansNum: Attribute.Integer;
@@ -441,7 +441,37 @@ export interface ApiTraderTrader extends Schema.CollectionType {
     traderIsUnderControl: Attribute.Boolean;
     tradeDays: Attribute.Float;
     avgHoldTime: Attribute.Float;
+    isWinRateAceptable: Attribute.Boolean;
     comisionRate: Attribute.Float;
+    maxAsset: Attribute.Float;
+    minAsset: Attribute.Float;
+    assetDifference: Attribute.Float;
+    variation: Attribute.Float;
+    maxLossAmount: Attribute.Float;
+    moneyChanged: Attribute.Float;
+    exceedsMaxLossPercentage: Attribute.Boolean;
+    minCumulativePnlRate: Attribute.Float;
+    maxCumulativePnlRate: Attribute.Float;
+    totalAcumulateLossRateValues: Attribute.Float;
+    positiveAcumulatePnlRate: Attribute.Float;
+    listOfNegativePnlValues: Attribute.JSON;
+    listOfPositivePnlValues: Attribute.JSON;
+    listOfNegativePnlRateValues: Attribute.JSON;
+    listOfPositivePnlRateValues: Attribute.JSON;
+    maxLossValue: Attribute.Float;
+    maxAvgRiskValue: Attribute.Float;
+    maxRiskValue: Attribute.Float;
+    minOperationsValue: Attribute.Float;
+    minDaysTradingValue: Attribute.Float;
+    latest30DaysEarningRatioValue: Attribute.Float;
+    maxLossAvgValue: Attribute.Float;
+    maxPercentageValue: Attribute.Float;
+    minPnLRate: Attribute.Float;
+    maxRisk: Attribute.Float;
+    minTotalTransactions: Attribute.Float;
+    minTradeFrequency: Attribute.Float;
+    maxTradeFrequency: Attribute.Float;
+    minDaysTrading: Attribute.Float;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -687,6 +717,37 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginChartbrewChartbrew extends Schema.SingleType {
+  collectionName: 'chartbrews';
+  info: {
+    singularName: 'chartbrew';
+    pluralName: 'chartbrews';
+    displayName: 'Chartbrew';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    host: Attribute.String & Attribute.Required;
+    token: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::chartbrew.chartbrew',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::chartbrew.chartbrew',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -885,6 +946,50 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginGraphsBuilderGraph extends Schema.CollectionType {
+  collectionName: 'graphs_builder_graph';
+  info: {
+    name: 'graph';
+    description: '';
+    singularName: 'graph';
+    pluralName: 'graphs';
+    displayName: 'Graph';
+  };
+  options: {
+    draftAndPublish: false;
+    timestamps: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: true;
+    };
+    'content-type-builder': {
+      visible: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['pie', 'bar', 'line', 'dateLine']> &
+      Attribute.Required;
+    collectionX: Attribute.String & Attribute.Required;
+    collectionXAttribute: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::graphs-builder.graph',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::graphs-builder.graph',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -900,10 +1005,12 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::chartbrew.chartbrew': PluginChartbrewChartbrew;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::graphs-builder.graph': PluginGraphsBuilderGraph;
     }
   }
 }

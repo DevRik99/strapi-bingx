@@ -14,11 +14,13 @@
   "attributes": {
     "nickname": {
       "type": "string",
-      "required": false
+      "required": false,
+      "unique": true
     },
     "uid": {
-      "type": "biginteger",
-      "required": true
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "equity": {
       "type": "float"
@@ -33,16 +35,16 @@
       "type": "integer"
     },
     "avgProfitAmount": {
-      "type": "string"
+      "type": "float"
     },
     "avgProfitRate": {
-      "type": "string"
+      "type": "float"
     },
     "avgLossAmount": {
-      "type": "string"
+      "type": "float"
     },
     "avgLossRate": {
-      "type": "string"
+      "type": "float"
     },
     "pnlRate": {
       "type": "string"
@@ -122,7 +124,7 @@
     "isAcceptableLossAverage": {
       "type": "boolean"
     },
-    "isGodResume": {
+    "isLatest30DaysEarningRatioAceptable": {
       "type": "boolean"
     },
     "BINGX_FEATURE": {
@@ -215,7 +217,97 @@
     "avgHoldTime": {
       "type": "float"
     },
+    "isWinRateAceptable": {
+      "type": "boolean"
+    },
     "comisionRate": {
+      "type": "float"
+    },
+    "maxAsset": {
+      "type": "float"
+    },
+    "minAsset": {
+      "type": "float"
+    },
+    "assetDifference": {
+      "type": "float"
+    },
+    "variation": {
+      "type": "float"
+    },
+    "maxLossAmount": {
+      "type": "float"
+    },
+    "moneyChanged": {
+      "type": "float"
+    },
+    "exceedsMaxLossPercentage": {
+      "type": "boolean"
+    },
+    "minCumulativePnlRate": {
+      "type": "float"
+    },
+    "maxCumulativePnlRate": {
+      "type": "float"
+    },
+    "totalAcumulateLossRateValues": {
+      "type": "float"
+    },
+    "positiveAcumulatePnlRate": {
+      "type": "float"
+    },
+    "listOfNegativePnlValues": {
+      "type": "json"
+    },
+    "listOfPositivePnlValues": {
+      "type": "json"
+    },
+    "listOfNegativePnlRateValues": {
+      "type": "json"
+    },
+    "listOfPositivePnlRateValues": {
+      "type": "json"
+    },
+    "maxLossValue": {
+      "type": "float"
+    },
+    "maxAvgRiskValue": {
+      "type": "float"
+    },
+    "maxRiskValue": {
+      "type": "float"
+    },
+    "minOperationsValue": {
+      "type": "float"
+    },
+    "minDaysTradingValue": {
+      "type": "float"
+    },
+    "latest30DaysEarningRatioValue": {
+      "type": "float"
+    },
+    "maxLossAvgValue": {
+      "type": "float"
+    },
+    "maxPercentageValue": {
+      "type": "float"
+    },
+    "minPnLRate": {
+      "type": "float"
+    },
+    "maxRisk": {
+      "type": "float"
+    },
+    "minTotalTransactions": {
+      "type": "float"
+    },
+    "minTradeFrequency": {
+      "type": "float"
+    },
+    "maxTradeFrequency": {
+      "type": "float"
+    },
+    "minDaysTrading": {
       "type": "float"
     }
   }
