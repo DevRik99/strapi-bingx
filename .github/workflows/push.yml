@@ -19,7 +19,7 @@ jobs:
             devrik99/strapi-bingx:latest
             devrik99/strapi-bingx:${{ github.sha }}
       - name: redeploy to portainer
-        uses: LGinC/portainer-stack-deploy@master
+        uses: devrik99/portainer-stack-deploy@master
         with:
           serverurl: http://54.37.139.100:9000
           username: ${{ secrets.PORTAINER_USERNAME }}
