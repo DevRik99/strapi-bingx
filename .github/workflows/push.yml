@@ -40,5 +40,6 @@ jobs:
                       DATABASE_NAME=strapi-bingx
                       DATABASE_USERNAME=devrik
                       DATABASE_PASSWORD=vIHn&E3Wmasz
+                      stackname: strapi-bingx
                     #restart: always
                     image: devrik99/strapi-bingx:${{github.sha}}
