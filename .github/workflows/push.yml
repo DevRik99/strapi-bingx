@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.PORTAINER_PASSWORD }}
           access_token: ${{secrets.ACCESS_TOKEN}}
           endpointId: 2
-          STACKNAME: strapi-bingx
+          stackname: strapi-bingx
           docker_compose: |
             version: "3"
             services:
