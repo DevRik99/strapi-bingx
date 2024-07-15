@@ -14,30 +14,33 @@
     "content-tags": {
       "fieldName": "Tags",
       "tags": {
-        "None": {
+        "Sin Revisar": {
           "color": "neutral"
         },
-        "Done": {
+        "Copiando": {
           "color": "success"
         },
-        "In progress": {
-          "color": "primary"
-        },
-        "Error": {
+        "No Encontrado": {
           "color": "danger"
         },
-        "InRevision": {
+        "BlackList": {
+          "color": "danger"
+        },
+        "En duda": {
           "color": "warning"
         }
       },
-      "defaultTag": "In progress"
+      "defaultTag": "Sin Revisar"
     }
   },
   "attributes": {
     "nickname": {
       "type": "string",
-      "required": false,
-      "unique": true
+      "required": false
+    },
+    "Tags": {
+      "type": "customField",
+      "customField": "plugin::content-tags.content-tags"
     },
     "uid": {
       "type": "string",
@@ -71,6 +74,12 @@
     "pnlRate": {
       "type": "string"
     },
+    "totalProfitAmount": {
+      "type": "float"
+    },
+    "totalLossAmount": {
+      "type": "float"
+    },
     "weeklyTradeFrequency": {
       "type": "float"
     },
@@ -91,9 +100,6 @@
     },
     "avgFollowerEarnings": {
       "type": "float"
-    },
-    "risks": {
-      "type": "json"
     },
     "maxRiskInAllTime": {
       "type": "float"
@@ -143,17 +149,23 @@
     "maxLossMonthValue": {
       "type": "float"
     },
+    "maxLossDayValueInLastWeekData": {
+      "type": "float"
+    },
+    "maxLossWeekValueInLastWeekData": {
+      "type": "float"
+    },
+    "maxLossMonthValueInLastWeekData": {
+      "type": "float"
+    },
+    "isLastWeekRiskPercentageAcceptable": {
+      "type": "boolean"
+    },
     "isAcceptableLossAverage": {
       "type": "boolean"
     },
     "isLatest30DaysEarningRatioAceptable": {
       "type": "boolean"
-    },
-    "BINGX_FEATURE": {
-      "type": "string"
-    },
-    "BINGX_SWAP_FUTURES": {
-      "type": "string"
     },
     "fansNum": {
       "type": "integer"
@@ -162,7 +174,7 @@
       "type": "boolean"
     },
     "latest30DaysEarningRatio": {
-      "type": "string"
+      "type": "float"
     },
     "maxProfit": {
       "type": "float"
@@ -237,7 +249,7 @@
       "type": "float"
     },
     "avgHoldTime": {
-      "type": "float"
+      "type": "string"
     },
     "isWinRateAceptable": {
       "type": "boolean"

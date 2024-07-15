@@ -1,0 +1,44 @@
+on: push
+name: deploy
+jobs:
+  build-push-dockerhib:
+    name: build and push devrik99/strapi-bingx
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: login to docker
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: build an push to dockerhub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            devrik99/strapi-bingx:latest
+            devrik99/strapi-bingx:${{ github.sha }}
+      - name: redeploy to portainer
+        uses: LGinC/portainer-stack-deploy@master
+        with:
+          serverurl: http://54.37.139.100:9000
+          username: ${{ secrets.PORTAINER_USERNAME }}
+          password: ${{ secrets.PORTAINER_PASSWORD }}
+          access_token: ${{secrets.ACCESS_TOKEN}}
+          endpointId: 2
+          STACKNAME: strapi-bingx
+          docker_compose: |
+            version: "3"
+            services:
+                strapi-bingx:
+                    container_name: "strapi-bingx"
+                    environment:
+                      DATABASE_CLIENT=mysql
+                      JWT_SECRET=UPdeMGSKkpmzzHnpovCFfw==
+                      DATABASE_HOST=54.37.139.100
+                      DATABASE_PORT=3306
+                      DATABASE_NAME=strapi-bingx
+                      DATABASE_USERNAME=devrik
+                      DATABASE_PASSWORD=vIHn&E3Wmasz
+                    #restart: always
+                    image: devrik99/strapi-bingx:${{github.sha}}
