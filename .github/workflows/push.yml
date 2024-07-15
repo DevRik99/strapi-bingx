@@ -34,16 +34,18 @@ jobs:
           docker_compose: |
             version: "3"
             services:
-                strapi-bingx:
-                    container_name: "strapi-bingx"
-                    environment:
-                      DATABASE_CLIENT=mysql
-                      JWT_SECRET=UPdeMGSKkpmzzHnpovCFfw==
-                      DATABASE_HOST=54.37.139.100
-                      DATABASE_PORT=3306
-                      DATABASE_NAME=strapi-bingx
-                      DATABASE_USERNAME=devrik
-                      DATABASE_PASSWORD=vIHn&E3Wmasz
-                      stackname= strapi-bingx
-                    #restart: always
-                    image: devrik99/strapi-bingx:${{github.sha}}
+              strapi-bingx:
+                container_name: "strapi-bingx"
+                environment:
+                  DATABASE_CLIENT: mysql
+                  JWT_SECRET: UPdeMGSKkpmzzHnpovCFfw==
+                  DATABASE_HOST: 54.37.139.100
+                  DATABASE_PORT: "3306"  # Puertos deben ser strings entre comillas si no se utilizan en variables de entorno.
+                  DATABASE_NAME: strapi-bingx
+                  DATABASE_USERNAME: devrik
+                  DATABASE_PASSWORD: vIHn&E3Wmasz
+                  stackname: strapi-bingx  # Quité el espacio antes de `strapi-bingx` para evitar errores.
+                restart: always
+                ports:
+                  - "1337:1337"
+                image: devrik99/strapi-bingx:latest
