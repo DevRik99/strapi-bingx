@@ -78,14 +78,19 @@ export default () => ({
       provider: {
         name: "memory",
         options: {
-          max: 32767,
-          maxAge: 3600,
+          maxAge: 1 * 1000 * 60 * 10,
         },
       },
       strategy: {
+        maxAge: 1 * 1000 * 60 * 10,
         contentTypes: [
           // list of Content-Types UID to cache
-          "api::trader.trader",
+          {
+            contentType: "api::trader.trader",
+            keys: {
+              useQueryParams: false, // disable query parameters in cache keys
+            },
+          },
         ],
       },
     },
