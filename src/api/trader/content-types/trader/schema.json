@@ -40,6 +40,12 @@
         },
         "Fuera de Rango": {
           "color": "danger"
+        },
+        "Copiando por mi riesgo": {
+          "color": "warning"
+        },
+        "Stop Loss": {
+          "color": "danger"
         }
       },
       "defaultTag": "Sin Revisar"
