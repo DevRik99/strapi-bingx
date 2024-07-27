@@ -29,6 +29,9 @@
         "En duda": {
           "color": "warning"
         },
+        "Inactivo": {
+          "color": "warning"
+        },
         "Riesgo Bajo": {
           "color": "success"
         },
@@ -42,6 +45,9 @@
           "color": "danger"
         },
         "Copiando por mi riesgo": {
+          "color": "warning"
+        },
+        "Copiando con cupon": {
           "color": "warning"
         },
         "Intentando dejar de seguir": {
