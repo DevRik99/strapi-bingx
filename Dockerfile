@@ -30,4 +30,4 @@ COPY --from=builder /app /app
 EXPOSE 1337
 
 # Start the Strapi application
-CMD ["npm", "run","develop"]
+CMD ["npm", "run","start"]
