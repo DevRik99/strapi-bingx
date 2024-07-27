@@ -44,8 +44,11 @@
         "Copiando por mi riesgo": {
           "color": "warning"
         },
+        "Intentando dejar de seguir": {
+          "color": "warning"
+        },
         "Stop Loss": {
-          "color": "danger"
+          "color": "Fuera de Rango"
         }
       },
       "defaultTag": "Sin Revisar"
